@@ -1,0 +1,33 @@
+-- create a grocery store database
+
+CREATE TABLE Dami (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, aisle INTEGER );
+
+INSERT INTO Dami VALUES (1, "dresses", 20, 10.50, 1 );
+INSERT INTO Dami VALUES (2, "tops" , 15, 5.99, 2 );
+INSERT INTO Dami VALUES (3, "jumpsuits", 15, 11.99, 1 );
+INSERT INTO Dami VALUES (4, "pants" , 45, 30, 3 );
+INSERT INTO Dami VALUES (5, "shoes" , 50, 35, 4 );
+INSERT INTO Dami VALUES (6, "bows" , 5, 10, 5 );
+INSERT INTO Dami VAlUES (7, "earrings" , 10, 10, 5 );
+INSERT INTO Dami VALUES (8, "necklaces" , 10, 10, 5 );
+INSERT INTO Dami VALUES (9, "scruncies" , 2, 5, 5 );
+INSERT INTO Dami VALUES (10, "jackets" , 50, 25, 2 );
+INSERT INTO Dami VALUES (11, "hoodies" , 50, 30, 2 );
+INSERT INTO Dami VALUES (12, "crop tops" , 10, 10 , 2 );
+INSERT INTO Dami VALUES (13, "sunglasses" , 15, 25, 5 );
+INSERT INTO Dami VALUES (14, "crystals" , 25, 30, 6 );
+
+-- Display the database ordered by price.
+
+SELECT * FROM Dami 
+ORDER BY price asc;
+
+-- Display the inventory that is less than 10. 
+
+SELECT * FROM DAMI
+WHERE inventory <=10 
+ORDER BY inventory;
+
+-- What is the SUM of the inventory?
+
+select SUM(inventory) From Dami;
