@@ -30,4 +30,4 @@ ORDER BY inventory;
 
 -- What is the SUM of the inventory?
 
-select SUM(inventory) From Dami;
+SELECT SUM(inventory) From Dami;
