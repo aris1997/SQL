@@ -1,0 +1,141 @@
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    birthday INTEGER,
+    raised TEXT);
+    
+Insert into singers (name, age, birthday, raised)
+values ( "J.Cole", "37", "1.28", "Fayetteville,NC");
+
+Insert into singers (name, age, birthday, raised)
+values ( "Billie Eilish", "20", "12.18", "Los Angeles, CA");
+
+Insert into singers (name, age, birthday,raised)
+values ( "Ariana Grande", "29", "6.26", "Boca Raton,FL");
+
+INSERT into singers (name, age, birthday,raised)
+values ( "Tori Kelly", "29", "12.14", "Wildomar,CA");
+
+INSERT into singers (name, age, birthday,raised)
+VALUES ("Rihanna", "34", "2.20", "Bridgetown, Barbados");
+
+INSERT into singers (name, age, birthday,raised)
+VALUES ( "Beyonce", "41", "9.4", "Houston, TX");
+
+
+
+Create Table grammys 
+( id INTEGER PRIMARY KEY AUTOINCREMENT,
+singer TEXT,
+winnings INTEGER);
+
+INSERT into grammys (singer, winnings)
+VALUES ("J.Cole", "1");
+
+INSERT into grammys (singer, winnings)
+VALUES ("Billie Eilish", "7");
+
+INSERT into grammys (singer, winnings)
+VALUES ("Ariana Grande", "2");
+
+INSERT INTO grammys (singer, winnings)
+VALUES ("Tori Kelly", "2");
+
+INSERT INTO grammys (singer, winnings)
+VALUES ("Rihanna","9");
+
+INSERT INTO grammys (singer, winnings)
+VALUES ("Beyonce", "28");
+
+
+CREATE TABLE songs
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    singer TEXT, 
+    year_released TEXT);
+    
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Apparently", "J.Cole","2014");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("No Role Modelz", "J.Cole","2014");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Bad Guy", "Billie Eilish","2019");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Lovely", "Billie Eilish","2018");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ( "Bellyache", "Billie Eilish", "2017");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("One Last Time", "Ariana Grande","2017");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Love Me Harder", "Ariana Grande", "2014");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("All In My Head","Tori Kelly", "2012");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Umbrella", "Rihanna", "2007");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Rude Boy", "Rihanna", "2009");
+
+INSERT INTO songs (name, singer, year_released)
+VALUES ("Run The World (Girls)", "Beyonce", "2011");
+
+INSERT INTO songs (name, singer,year_released)
+VALUES ("Halo", "Beyonce", "2008");
+
+CREATE TABLE genre
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+singer_id INTEGER,
+genre TEXT);
+
+INSERT INTO genre (singer_id, genre)
+VALUES ("1", "Rap");
+
+INSERT INTO genre (singer_id, genre)
+VALUES ( "2", "Alt-Pop");
+
+INSERT INTO genre (singer_id, genre)
+VALUES ("3", "Pop");
+
+INSERT INTO genre (singer_id, genre)
+VALUES ("4", "Pop");
+
+INSERT INTO genre (singer_id, genre)
+VALUES ("5", "Pop");
+
+INSERT INTO genre (singer_id, genre)
+VALUES ("6", "R&B");
+
+
+
+
+SELECT singers.name, songs.name, songs.year_released FROM singers
+JOIN songs
+ON singers.name= songs.singer
+ORDER BY year_released asc;
+
+
+
+SELECT singers.name, singers.raised, singers.age, grammys.winnings FROM singers
+JOIN grammys 
+ON singers.name= grammys.singer;
+
+-- Display the songs that were released after 2012.
+
+SELECT name FROM songs 
+WHERE year_released >2012;
+
+SELECT singers.name, songs.name, genre.genre
+FROM singers
+JOIN songs
+ON singers.name=songs.singer
+JOIN genre 
+ON singers.id = genre.singer_id;
